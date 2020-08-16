@@ -10,7 +10,7 @@ ${SIGNIN_BUTTON} =  css:button[type=submit]
 
 *** Keywords ***
 Fill User
-    Input Text  ${USER_FIELD}  ${USERNAME}
+    Input Text  ${USER_FIELD}  ${EMAIL}
 
 Fill Password
     Input Text  ${PASSWORD_FIELD}  ${PASSWORD}

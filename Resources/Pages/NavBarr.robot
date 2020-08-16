@@ -2,13 +2,13 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${HOME_LINK} =  css:a[href=#/]
-${SIGNIN_LINK} =  css:a[href="#login"]
-${SIGNUP_LINK} =  css:a[href=#register]
+${HOME_LINK} =  css=li:nth-child(1) a
+${SIGNIN_LINK} =  css=li:nth-child(2) a
+${SIGNUP_LINK} =  css=li:nth-child(3) a
+${ASSERT_USER} =  css=li:last-child
 
 *** Keywords ***
 Click on Sign In
-    Wait Until Page Contains Element  ${SIGNIN_LINK}
     Click Link  ${SIGNIN_LINK}
 
 Click on Home
@@ -16,3 +16,6 @@ Click on Home
 
 Click on Sign Up
     Click Link  ${SIGNUP_LINK}
+
+Verify User had Sign In
+    Element Should Contain  ${ASSERT_USER}  ${USERNAME}
