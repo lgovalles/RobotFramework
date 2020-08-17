@@ -10,14 +10,9 @@ pool:
   vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python27:
-      python.version: '2.7'
-    Python35:
-      python.version: '3.5'
-    Python36:
-      python.version: '3.6'
-    Python37:
-      python.version: '3.7'
+    Python38:
+      python.version: '3.8'
+  maxParallel: 1
 
 steps:
 - task: UsePythonVersion@0
@@ -27,11 +22,11 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r Pipfile
+    pip install robotframework 
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
+    pip install pytest pytest-azurepipelines robotframework-seleniumlibrary && npm install chromedriver
     pytest
   displayName: 'pytest'
 
