@@ -23,12 +23,8 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install robotframework 
+    pip install robotframework-seleniumlibrary && npm install chromedriver
   displayName: 'Install dependencies'
-
-- script: |
-    pip install pytest pytest-azurepipelines robotframework-seleniumlibrary && npm install chromedriver
-    pytest
-  displayName: 'pytest'
 
 - powershell: robot -d Results\SignUp -i SignUp .\Tests
   displayName: 'Run Robot Scripts'
